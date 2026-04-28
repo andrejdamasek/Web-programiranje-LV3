@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andrej">
+    <!-- meta description sluzi kako bi vidjeli to na Googleu -->
+    <meta name="description"  content="Iznajmljivanje filmskih remek-djela.">
+    <link rel="stylesheet" href="styles/style.css?v=2">
+    <title>FilmShare</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <h1>FilmShare</h1>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul class="nav-menu">
+            <li><a href="/">Početna</a></li>
+            <li><a href="/grafikon">Statistika</a></li>
+            <li><a href="/slike">Galerija</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-grid">
+
+
+        <section class="main-content">
+            <h2>Katalog Remek-djela</h2>
+
+            <section class="filters-section">
+                <h3>Filtriraj katalog</h3>
+                <div class="filter-group">
+                    <label for="filter-title">Pretraži naslov:</label>
+                    <input type="text" id="filter-title" placeholder="Upišite ime filma...">
+
+                    <label for="filter-rating">Minimalna ocjena: <span id="rating-value">5.0</span></label>
+                    <input type="range" id="filter-rating" min="0" max="10" step="0.1" value="5.0">
+
+                    <div class="radio-group">
+                        <span>Razdoblje:</span>
+                        <label><input type="radio" name="era" value="all" checked> Sve</label>
+                        <label><input type="radio" name="era" value="vintage"> Vintage (prije 1980)</label>
+                        <label><input type="radio" name="era" value="classic"> Klasici (1980-2000)</label>
+                        <label><input type="radio" name="era" value="modern"> Moderni (2000+)</label>
+                    </div>
+
+                    <button id="btn-filtriraj" class="cta-btn-filter">Primijeni filtre</button>
+                </div>
+            </section>
+
+
+            <div class="table-wrapper">
+                <div class="table-container">
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Naslov</th>
+                                <th>Žanr</th>
+                                <th>Godina</th>
+                                <th>Trajanje</th>
+                                <th>Ocjena</th>
+                                <th>Košarica</th>
+                            </tr>
+                        </thead>
+                        <tbody id="movies-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <aside class="sidebar">
+
+
+            <h3>Izdvojena preporuka</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+                Ne znate što gledati? Pogledajte našu izdvojenu preporuku!
+            </p>
+           
+            <picture>
+                <source media="(max-width: 850px)"
+                    srcset="https://m.media-amazon.com/images/M/MV5BYjE4NzdmOTYtYjc5Yi00YzBiLWEzNDEtNTgxZGQ2MWVkN2NiXkEyXkFqcGc@._V1_.jpg">
+                <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10543523_p_v8_as.jpg"
+                    alt="Preporuka filma"
+                    style="width: 100%; border-radius: 2px; border: 1px solid var(--color-border); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+            </picture>
+
+            <a href="/pages/grafikon.html" class="cta-btn"
+                style="margin-top: 25px; width: 100%; text-align: center;">Otvori Statistiku
+            </a>
+
+            <aside id="kosarica-sidebar" class="kosarica-style">
+                <h3>Moja košarica (<span id="brojac-kosarice">0</span>)</h3>
+                <ul id="lista-kosarice">
+                </ul>
+                <button id="potvrdi-kosaricu" class="cta-btn success">Potvrdi posudbu</button>
+            </aside>
+        </aside>
+
+
+
+
+        <article class="info-article" style="grid-column: 1 / -1;">
+            <h2>Značaj klasičnog filma</h2>
+            <p style="margin-bottom: 15px;">
+                Filmovi iz ove arhive nisu samo zabava; oni su povijesni dokumenti koji su oblikovali vizualni jezik
+                koji koristimo i danas. Od revolucionarnih tehnika snimanja do hrabrih društvenih tema, ovi klasici
+                definiraju što znači biti remek-djelo.
+            </p>
+            <p style="color: var(--color-text-muted);">
+                Istražite našu pažljivo odabranu kolekciju i otkrijte filmove koji su preživjeli test vremena.
+            </p>
+        </article>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>FilmShare — Premium Arhiva Filmskih Klasika</p>
+        <p style="font-size: 0.75rem;">Projekt iz Web Programiranja 2025/2026. Sva prava pridržana.</p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
